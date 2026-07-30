@@ -1,0 +1,12 @@
+{
+  "name": "neko-browser",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postStartCommand": "docker run -d --name neko --shm-size=2gb -p 8080:8080 -e NEKO_SCREEN=1920x1080@30 -e NEKO_PASSWORD=yourpassword -e NEKO_PASSWORD_ADMIN=youradminpass ghcr.io/m1k1o/neko/chromium:latest",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "Neko Browser", "visibility": "public" }
+  }
+}
