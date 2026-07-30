@@ -4,7 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postStartCommand": "docker run -d --name chrome-sandbox --shm-size=2gb -p 7900:7900 selenium/standalone-chrome-debug",
+  "postStartCommand": "docker run -d --name chrome-sandbox --shm-size=2gb -p 7900:7900 -e SE_VNC_NO_PASSWORD=1 selenium/standalone-chrome:latest",
   "forwardPorts": [7900],
   "portsAttributes": {
     "7900": { "label": "Browser Sandbox (noVNC)", "visibility": "public" }
