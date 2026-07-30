@@ -1,12 +1,12 @@
 {
-  "name": "neko-browser",
+  "name": "browser-sandbox",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postStartCommand": "docker run -d --name neko --shm-size=2gb -p 8080:8080 -e NEKO_SCREEN=1920x1080@30 -e NEKO_PASSWORD=yourpassword -e NEKO_PASSWORD_ADMIN=youradminpass ghcr.io/m1k1o/neko/chromium:latest",
-  "forwardPorts": [8080],
+  "postStartCommand": "docker run -d --name chrome-sandbox --shm-size=2gb -p 7900:7900 selenium/standalone-chrome-debug",
+  "forwardPorts": [7900],
   "portsAttributes": {
-    "8080": { "label": "Neko Browser", "visibility": "public" }
+    "7900": { "label": "Browser Sandbox (noVNC)", "visibility": "public" }
   }
 }
